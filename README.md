@@ -2,6 +2,7 @@
 
 ### Visão Geral das Tecnologias Utilizadas
 
+---
 O projeto "ChatBot de Agendamento Médico" combina várias tecnologias para criar um sistema automatizado de agendamento médico. Abaixo, apresentamos uma visão geral das principais tecnologias e suas funções no projeto:
 
 Dialogflow:
@@ -28,48 +29,59 @@ Função: Um ambiente virtual Python é usado para isolar as dependências do pr
 Uso no Projeto: É criado um ambiente virtual Python para instalar e gerenciar as dependências do projeto, garantindo que ele seja portátil e independente do sistema host.
 Estas tecnologias trabalham em conjunto para criar uma solução completa de agendamento médico automatizado que permite aos usuários agendar consultas de forma conveniente por meio de mensagens de texto no WhatsApp.
 
-## Como Testar
+---
 
+### Como Testar
+---
 Você pode testar o chatbot enviando uma mensagem para o número de telefone: +55 51 997866074.
 
 ## Como Replicar o Projeto
 
 Se deseja replicar a aplicação em sua máquina e testá-la com seu número de telefone de preferência, siga os passos abaixo:
 
+---
+
 ### 1. Crie seu Ambiente Virtual
 
-```
+---
+
 
 Primeiro, crie um ambiente virtual com os seguintes comandos:
 
 ```
 python -m venv nome_do_ambiente_virtual
 
+``` 
+---
 ### 2. Ative o Ambiente Virtual
 
-``` 
+---
 
 No Linux:
 
+```
 source nome_do_ambiente_virtual/bin/activate
 
+```
 No Windows:
 
+```
 nome_do_ambiente_virtual\Scripts\Activate
 
 ```
-
+---
 ### 3. Instale as Dependências
+
+---
 Ative o ambiente virtual e, em seguida, instale as dependências a partir do arquivo requirements.txt:
 
 ```
 pip install -r requirements.txt
 
 ```
-
+---
 ### 4. Configuração do Dialogflow
-
-```
+---
 A configuração do Dialogflow é essencial para definir a interação entre o chatbot e o usuário. Siga estas etapas:
 
 Crie um projeto no Dialogflow.
@@ -84,9 +96,11 @@ Implante seu modelo para aplicá-lo.
 
 Anote o nome do projeto e a chave de acesso do projeto para uso posterior.
 
-```
+---
+
 ### 5. Configuração do Ngrok e Flask
-```
+
+---
 
 rode seu servidor flask : 
 
@@ -102,23 +116,38 @@ Execute o seguinte comando para iniciar o Ngrok e gerar um túnel para a porta e
 
 no terminal rode o seguinte comando : 
 
+```
 ngrok authtoken SEU_TOKEN_AQUI
 
+```
 em seguida : 
+
+```
 ngrok http 5000
 
+```
 
 O Ngrok exibirá uma saída que inclui uma URL pública temporária que você pode usar para acessar seu aplicativo Flask online.
 
-Anote a URL pública gerada pelo Ngrok, que será semelhante a https://random-letters-and-numbers.ngrok.io.
-
-
+Anote a URL pública gerada pelo Ngrok, que será semelhante a:
 
 ```
+Account                       WANDERSON CORREA GUEDES (Plan: Free)
+Version                       3.3.5
+Region                        South America (sa)
+Latency                       60ms
+Web Interface                 http://127.0.0.1:4040
+Forwarding                    https://e4f2-2804-49b8-106a-f300-a570-736-6c71-5291.ngrok-free.app -> http://localhost:5000
+
+Connections                   ttl     opn     rt1     rt5     p50     p90     
+                              10      0       0.02    0.02    0.03    0.04    
+
+HTTP Requests
+```
+---
 
 ### 6. Vinculando seu Aplicativo Flask ao Dialogflow
-
-```
+---
 Para vincular seu aplicativo Flask ao Dialogflow, siga estas etapas:
 
 No Console do Dialogflow, vá para as Configurações do Projeto.
@@ -145,11 +174,10 @@ Salve as configurações do webhook.
 
 Seu aplicativo Flask agora está vinculado ao Dialogflow e pode receber solicitações do chatbot.
 
-```
+---
 
 ## 7. Vinculando a Chave do Dialogflow ao AutoResponderWA
 
-```
 Para permitir que o AutoResponderWA se comunique com o Dialogflow, siga estas etapas:
 
 Baixe o AutoResponderWA e siga as instruções de instalação do projeto.
@@ -164,4 +192,4 @@ Salve as configurações e verifique se o AutoResponderWA está online e pronto 
 
 Agora, seu chatbot está vinculado ao AutoResponderWA e pode responder às mensagens recebidas no número de telefone especificado, utilizando o Dialogflow para processamento de linguagem natural. Certifique-se de testar a integração para garantir que tudo esteja funcionando conforme o esperado.
 
-```
+---
