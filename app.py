@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import requests
 import json
+import re
 
 app = Flask(__name__)
 
@@ -13,13 +14,26 @@ def main():
     prontuario = data['queryResult']['parameters']['prontuario']
     telefone = data['queryResult']['parameters']['telefone']
 
+    if len(nome) < 3:
+        response_data = {
+            'fulfillmentMessages': [
+                {
+                    'text': {
+                        'text': ['Por favor, forneça um nome com pelo menos 3 caracteres.']
+                    }
+                }
+            ]
+        }
+    
+
+
     if intentName != '' and nome !='' and prontuario !='' and telefone != '':
         
         response_data = {
             'fulfillmentMessages': [
                 {
                     'text': {
-                        'text': [f'Ok Sr(a) {nome}, sua consulta foi marcada e seu prontuário é o {prontuario} e o seu telefone é {telefone}']
+                        'text': [f' Sr(a) {nome}, sua consulta foi marcada e seu prontuário é o {prontuario} e o seu telefone é {telefone}']
                     }
                 }
             ]
