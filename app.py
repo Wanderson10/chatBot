@@ -14,16 +14,6 @@ def main():
     prontuario = data['queryResult']['parameters']['prontuario']
     telefone = data['queryResult']['parameters']['telefone']
 
-    if len(nome) < 3:
-        response_data = {
-            'fulfillmentMessages': [
-                {
-                    'text': {
-                        'text': ['Por favor, forneça um nome com pelo menos 3 caracteres.']
-                    }
-                }
-            ]
-        }
     
 
 

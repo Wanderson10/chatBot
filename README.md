@@ -35,6 +35,8 @@ Estas tecnologias trabalham em conjunto para criar uma solução completa de age
 ---
 Você pode testar o chatbot enviando uma mensagem para o número de telefone: +55 51 997866074.
 
+lembrando que ele apenas intendera se iniciar com essas palavras : oi,oie ,bom dia, opa, fala ai , ola. 
+
 ## Como Replicar o Projeto
 
 Se deseja replicar a aplicação em sua máquina e testá-la com seu número de telefone de preferência, siga os passos abaixo:
