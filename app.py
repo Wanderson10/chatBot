@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-# Função para reiniciar as variáveis do usuário
 def reiniciar_variaveis():
     user_data['estado'] = 'inicial'
     user_data['nome'] = None
@@ -20,6 +19,7 @@ user_data = {
 def main():
     data = request.get_json(silent=True)
     user_message = data['queryResult']['queryText']
+
     response_data = {}
 
     if user_message == 'reiniciar':
@@ -70,21 +70,11 @@ def main():
             ]
     elif user_data['estado'] == 'esperando_prontuario':
         user_data['prontuario'] = user_message
-        user_data['estado'] = 'esperando_telefone'
-        response_data['fulfillmentMessages'] = [
-            {
-                'text': {
-                    'text': ['Ótimo! Agora, por favor, digite seu número de telefone.']
-                }
-            }
-        ]
-    elif user_data['estado'] == 'esperando_telefone':
-        user_data['telefone'] = user_message
         user_data['estado'] = 'finalizado'
         response_data['fulfillmentMessages'] = [
             {
                 'text': {
-                    'text': [f'Sr(a) {user_data["nome"]}, sua consulta foi marcada com sucesso. Seu prontuário é {user_data["prontuario"]} e seu telefone é {user_data["telefone"]}']
+                    'text': [f'Sr(a) {user_data["nome"]}, sua consulta foi marcada com sucesso. Seu prontuário é {user_data["prontuario"]}']
                 }
             }
         ]
